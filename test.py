@@ -1,6 +1,5 @@
 from selenium import webdriver
-
-
-driver = webdriver.Edge()
-driver.get('https://www.baidu.com')
-
+option = webdriver.ChromeOptions()
+option.add_experimental_option("detach", True)
+browser = webdriver.Chrome(options=option)
+browser.get('http://www.baidu.com/')
