@@ -17,4 +17,4 @@ driver.get('https://www.baidu.com')
 ```
 
 ## v1.1
-1. overview是通过延迟来等待预览界面加载完成再截图的，延迟时间为传入overview_short的参数
+1. overview是通过延迟来等待预览界面加载完成再截图的，延迟时间为传入overview_screenshot的参数

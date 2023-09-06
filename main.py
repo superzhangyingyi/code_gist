@@ -23,14 +23,28 @@ def login(userName, passWord):
     login_DOM_login_btn.click()
     
     
-def overview_short(seconds):
+def overview_screenshot(seconds):
     time.sleep(seconds)
     login_DOM_close_pop_btn=WebDriverWait(browser,10,0.5).until(EC.presence_of_element_located((By.CLASS_NAME, "close")))
     login_DOM_close_pop_btn.click()
     # 截图保存在本地
     browser.get_screenshot_as_file('overview.png')
+
+def storaged_screenshot():
+    login_DOM_more_btn=WebDriverWait(browser,10,0.5).until(EC.presence_of_element_located((By.XPATH, "//a[@title='更多']")))
+    login_DOM_more_btn.click()
+    # login_DOM_storaged_btn=WebDriverWait(browser,10,0.5).until(EC.presence_of_element_located((By.XPATH, "//a[@title='存储']")))
+    # login_DOM_storaged_btn.click()
+    # login_DOM_storaged_server_btn=WebDriverWait(browser,10,0.5).until(EC.presence_of_element_located((By.XPATH, "//a[@title='存储服务器']")))
+    # login_DOM_storaged_server_btn.click()
+
+    # 用js去点击的，//a[@title='存储服务器']后click不成功
+    js_login = """document.querySelector('.sidebar-menu li a[title="存储服务器"]').click()"""
+    browser.execute_script(js_login)
+    
     
 
 if __name__ == '__main__':
     login('zyy', '22222222')
-    overview_short(4)
+    #overview_screenshot(4)
+    storaged_screenshot()
