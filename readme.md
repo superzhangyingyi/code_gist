@@ -16,5 +16,8 @@ driver = webdriver.Edge(executable_path='msedgedriver.exe')
 driver.get('https://www.baidu.com')
 ```
 
-## v1.1
+## master分支
 1. overview是通过延迟来等待预览界面加载完成再截图的，延迟时间为传入overview_screenshot的参数
+
+## test分支
+1. 是通过自定义浏览器插件实现的，无需安装三方库和额外驱动
