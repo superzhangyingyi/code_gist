@@ -1,0 +1,14 @@
+{
+    "name": "auto_dbackup_inspection",
+    "author": "zyy",
+    "description": "自动巡检--测试中",
+    "manifest_version": 2,
+    "version": "1.0",
+    "content_scripts": [{
+      "matches": [
+          "http://192.168.3.118/*"
+      ],
+      "js": ["main.js"],
+      "run_at": "document_start"
+  }]
+}
