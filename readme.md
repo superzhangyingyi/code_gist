@@ -3,3 +3,7 @@
 2. edge和chrome均已支持
 
 ## each5s_append_file 每5秒往文件追加字符
+
+# test_Experience
+1.作业的前置条件执行的时候，该作业处于running状态
+2.执行前置脚本时，执行python脚本文件也会阻塞进程，即使忽略执行结果，仍然阻塞，作业只有进度条不会执行
