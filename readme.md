@@ -4,6 +4,10 @@
 
 ## each5s_append_file 每5秒往文件追加字符
 
+# create_vm_job 创建虚拟化作业示例
+1. 接口/ds/dbackup/:路由最后有/
+2. 该接口使用`'Content-Type': 'application/x-www-form-urlencoded',`注意提交参数格式
+
 # test_Experience
 1.作业的前置条件执行的时候，该作业处于running状态
 2.执行前置脚本时，执行python脚本文件也会阻塞进程，即使忽略执行结果，仍然阻塞，作业只有进度条不会执行
