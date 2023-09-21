@@ -6,7 +6,14 @@
 
 # create_vm_job 创建虚拟化作业示例
 1. 接口/ds/dbackup/:路由最后有/
-2. 该接口使用`'Content-Type': 'application/x-www-form-urlencoded',`注意提交参数格式
+2. 该接口使用`'Content-Type': 'application/x-www-form-urlencoded',`在requests请求中需要data 参数发送数据
+    - data参数：
+        - 发送的数据仍使用对象类型传入，由request库自动处理并转译后再发送数据
+        - 响应头默认置为application/x-www-form-urlencoded
+    - json参数：
+        - 响应头默认置为application/json
+3. 存在python脚本和bash脚本两种写法，均成功
+    - bash脚本中，只有虚拟化作业名称是转译过的，否则乱码
 
 # test_Experience
 1.作业的前置条件执行的时候，该作业处于running状态
