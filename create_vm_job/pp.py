@@ -1,12 +1,10 @@
 import requests
 import json
 
-headers = {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    "X-API-Key": "183f54cec6a53ca064d93fbf6399a465"
-}
+API_KEY = '183f54cec6a53ca064d93fbf6399a465'
+SERVER_IP = '192.168.3.117'
 
-pa = {
+backup_data_params = {
     "vcenter_id":"1",
     "backup_target_type":"1",
     "module_type":"1",
@@ -54,12 +52,12 @@ pa = {
     "user_uuid":"ca718c049b90000164b91130326071b0",
     "user_name":"scutech",
     "language":"zh-CN"
-    }
-jsonstr =json.dumps(pa)
-data = {
+}
+jsonstr =json.dumps(backup_data_params)
+params_data = {
     'module_type': '2',
     'func': 'CreateBackupTask',
     'params': jsonstr
 }
-response = requests.post('http://192.168.3.117/ds/dbackup/', headers=headers, data=data, verify=False)
+response = requests.post('http://%s/ds/dbackup/'%SERVER_IP, data=params_data, headers={"X-API-Key":API_KEY})
 print(response.text)
