@@ -4,7 +4,7 @@
 
 ## each5s_append_file 每5秒往文件追加字符
 
-# create_vm_job 创建虚拟化作业示例
+## create_vm_job 创建虚拟化作业示例
 1. 接口/ds/dbackup/:路由最后有/
 2. 该接口使用`'Content-Type': 'application/x-www-form-urlencoded',`在requests请求中需要data 参数发送数据
     - data参数：
@@ -14,6 +14,12 @@
         - 响应头默认置为application/json
 3. 存在python脚本和bash脚本两种写法，均成功
     - bash脚本中，只有虚拟化作业名称是转译过的，否则乱码
+
+## webhook_receive
+1. 为webhook的接收平台测试，在迪备中配置URL地址为 http://IP:443/webhook
+2. 简单显示由迪备发出的post请求的body和请求头 (body为空时会报错-未修复)
+
+
 
 # test_Experience
 1.作业的前置条件执行的时候，该作业处于running状态
