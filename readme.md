@@ -17,7 +17,15 @@
 
 ## webhook_receive
 1. 为webhook的接收平台测试，在迪备中配置URL地址为 http://IP:443/webhook
-2. 简单显示由迪备发出的post请求的body和请求头 (body为空时会报错-未修复)
+2. 均可以简单显示由迪备发出的post请求的body和请求头
+    1. main.js
+        - (body为空时会报错-未修复)
+        - 需要node.js环境运行
+        - 有转换成企业微信机器人消息推送功能，将迪备请求转换后发送到机器人webhook
+            - 将迪备的请求头和body重新打包成{'head':迪备请求头, 'body':迪备body}
+            - (功能尚未认证)
+    2. fl.py
+        - 需要安装`pip3 install flask` (迪备环境不自带)
 
 
 
