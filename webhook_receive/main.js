@@ -2,8 +2,11 @@ var express = require('express');
 var request = require('request');
 var app = express();
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
+// express.json()默认解析application/json，输出为对象类型，自动转字符集，但是遇到body为空会报错
+// app.use(express.json())
+
+// 指定type类型，解析application/json类型请求，输出字符串
+app.use(express.text({type:'application/json'}))
 
 app.post('/webhook', function(req, res){
     let msg = '';
@@ -15,8 +18,10 @@ app.post('/webhook', function(req, res){
     console.log('---------------------HEAD-----------------------------');
     console.log(headmsg);
     console.log('---------------------BODY-----------------------------');
-    console.log(msg);
-    WeCom_transfrom(headmsg, msg)
+    // 解码中文
+    console.log(unescape(msg.replace(/\\u/g, "%u")));
+    // console.log(msg);
+    // WeCom_transfrom(headmsg, msg)
 })
 
 //将迪备的请求格式转换成 企业微信-机器人推送消息的规定格式 (仅仅将body转化成字符串)
